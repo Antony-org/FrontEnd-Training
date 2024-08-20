@@ -1,4 +1,4 @@
-const image = document.getElementById("img");
+const image = document.getElementById("draggableImage");
 
 let offsetX, offsetY;
 const staticSrc = "images/cat.jpg";
@@ -13,6 +13,7 @@ let timeout;
 image.addEventListener("mousedown", function (event) {
   offsetX = event.clientX - image.getBoundingClientRect().left;
   offsetY = event.clientY - image.getBoundingClientRect().top;
+  image.src = gifSrc;
   document.addEventListener("mousemove", moveImage);
   document.addEventListener("mouseup", stopDragging);
 });
@@ -20,11 +21,10 @@ image.addEventListener("mousedown", function (event) {
 // Function to move the image with the mouse
 function moveImage(event) {
   image.style.position = "absolute";
-  image.src = gifSrc;
   clearTimeout(timeout);
   timeout = setTimeout(() => {
     image.src = staticSrc;
-  }, 10);
+  }, 1000);
   image.style.left = event.clientX - offsetX + "px";
   image.style.top = event.clientY - offsetY + "px";
 }
