@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substring Search</title>
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+    <h1>Substring Search Tool</h1>
+    
+    <article class="a">
+        <label for="fullText">Enter the full text:</label>
+        <input type="text" id="fullText" placeholder="Type your text here...">
+    </article>
+    
+    <div class = "b">    
+        <label for="substring">Enter the substring you want to search for:</label>
+        <input type="text" id="substring" placeholder="Type the substring here...">
+    </div>
+    <div class = "c">    
+        <label for="substring">At Index:</label>
+        <input type="number" id="index" placeholder="Type the substring here...">
+    </div>
+
+    <div class="out-group">
+        <label for="indexResult">First occurence located at Index:</label>
+        <output type="text" id="firstOcc" output>
+    </div>
+    
+    <div class="out-group">
+        <label for="isPresent">Last occurence located at Index:</label>
+        <output type="text" id="lastOcc" output>
+    </div>
+    
+    <div class="out-group">
+        <label for="lengthResult">First occurence after ur specified index:</label>
+        <output type="text" id="firstAfter" output>
+    </div>
+    
+    <div class="out-group">
+        <label for="modifiedText">Last occurence after ur specified index:</label>
+        <output type="text" id="lastAfter" output>
+    </div>
+
+    <input type="button" value="Search" onclick="searchSubstring()">
+
+    <script src="javascript/assignment1.js"></script>
+</body>
+</html>
