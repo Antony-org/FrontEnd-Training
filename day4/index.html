@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Phone Book</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- jQuery and jQuery Mobile JS -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Contact List Page -->
+    <div data-role="page" id="contact-list-page">
+        <div data-role="header">
+            <h1>Contacts</h1>
+            <a href="#new-contact-page" data-role="button" data-icon="plus">Add</a>
+        </div>
+        <div data-role="content">
+            <input id="filter" data-type="search" placeholder="Search contacts...">
+            <ul id="contact-list" data-role="listview" data-filter="true" data-input="#filter">
+                <!-- Contacts will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- New Contact Page -->
+    <div data-role="page" id="new-contact-page">
+        <div data-role="header">
+            <a href="#contact-list-page" data-role="button" data-icon="back">Back</a>
+            <h1>New Contact</h1>
+        </div>
+        <div data-role="content">
+            <form id="new-contact-form">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" name="phone" id="phone" pattern="\d+" required>
+                <input type="hidden" id="contact-id">
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Details Page -->
+    <div data-role="page" id="contact-details-page">
+        <div data-role="header">
+            <a href="#contact-list-page" data-role="button" data-icon="back">Back</a>
+            <h1>Contact Details</h1>
+        </div>
+        <div data-role="content">
+            <h2 id="contact-name"></h2>
+            <p><strong>Phone:</strong> <span id="contact-phone"></span></p>
+            <a href="#" id="edit-contact" data-role="button" data-icon="edit">Edit</a>
+            <a href="#" id="delete-contact" data-role="button" data-icon="delete">Delete</a>
+            <a href="#" id="call-contact" data-role="button" data-icon="phone">Call</a>
+        </div>
+    </div>
+
+    <script src="js/code.js"></script>
+</body>
+
+</html>
