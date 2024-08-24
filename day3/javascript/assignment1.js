@@ -2,9 +2,9 @@ function searchSubstring() {
     var fullText = document.getElementById("fullText").value;
     var substring = document.getElementById("substring").value;
     var index = parseInt(document.getElementById("index").value, 10);
-    if (index != isNaN || index < 0){
-        index = 0;
-    }
+    // if (index != isNaN || index < 0){
+    //     index = 0;
+    // }
     var firstOcc = fullText.indexOf(substring);
     if(firstOcc == -1){
         document.getElementById("firstOcc").value = "Not found";
@@ -29,7 +29,7 @@ function searchSubstring() {
         document.getElementById("firstAfter").value = firstAfter;
     }
 
-    var lastAfter = fullText.lastIndexOf(substring);
+    var lastAfter = fullText.lastIndexOf(substring, index);
     if(lastAfter == -1){
         document.getElementById("lastAfter").value = "Not found";
     }

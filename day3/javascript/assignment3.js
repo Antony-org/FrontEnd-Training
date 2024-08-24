@@ -6,10 +6,8 @@ const gifSrc = "images/happy_cat.gif";
 
 let timeout;
 
-// Event listener for mouse movement
 //document.addEventListener("mousemove", handleMouseMove);
 
-// Mouse down event to start dragging
 image.addEventListener("mousedown", function (event) {
   offsetX = event.clientX - image.getBoundingClientRect().left;
   offsetY = event.clientY - image.getBoundingClientRect().top;
@@ -18,7 +16,6 @@ image.addEventListener("mousedown", function (event) {
   document.addEventListener("mouseup", stopDragging);
 });
 
-// Function to move the image with the mouse
 function moveImage(event) {
   image.style.position = "absolute";
   clearTimeout(timeout);
@@ -29,7 +26,6 @@ function moveImage(event) {
   image.style.top = event.clientY - offsetY + "px";
 }
 
-// Stop dragging when the mouse is released
 function stopDragging() {
   document.removeEventListener("mousemove", moveImage);
   document.removeEventListener("mouseup", stopDragging);
