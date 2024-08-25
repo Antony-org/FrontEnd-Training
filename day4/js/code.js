@@ -1,28 +1,27 @@
 $(document).ready(function() {
     var contacts = [];
 
-    // Save new contact or update existing contact
     $("#new-contact-form").on("submit", function(event) {
         event.preventDefault();
         var id = $("#contact-id").val();
+        console.log(id);
         var newContact = {
             name: $("#name").val(),
             phone: $("#phone").val()
         };
 
         if (id) {
-            contacts[id] = newContact; // Update existing contact
+            contacts[id] = newContact;
         } else {
-            contacts.push(newContact); // Add new contact
+            contacts.push(newContact); 
         }
 
         updateContactList();
         $.mobile.changePage("#contact-list-page");
         $("#new-contact-form")[0].reset();
-        $("#contact-id").val(""); // Clear the hidden ID field after save
+        $("#contact-id").val(""); 
     });
 
-    // Update contact list
     function updateContactList() {
         $("#contact-list").empty();
         contacts.forEach(function(contact, index) {
@@ -36,9 +35,9 @@ $(document).ready(function() {
         $("#contact-list").listview("refresh");
     }
 
-    // View contact details
     $(document).on("click", ".view-contact", function() {
         var id = $(this).data("id");
+        // console.log(data("id").val)
         var contact = contacts[id];
         $("#contact-name").text(contact.name);
         $("#contact-phone").text(contact.phone);
@@ -48,17 +47,15 @@ $(document).ready(function() {
         $.mobile.changePage("#contact-details-page");
     });
 
-    // Edit contact
     $("#edit-contact").on("click", function() {
         var id = $(this).data("id");
         var contact = contacts[id];
         $("#name").val(contact.name);
         $("#phone").val(contact.phone);
-        $("#contact-id").val(id); // Store the ID in the hidden field
+        $("#contact-id").val(id); 
         $.mobile.changePage("#new-contact-page");
     });
 
-    // Delete contact
     $("#delete-contact").on("click", function() {
         var id = $(this).data("id");
         contacts.splice(id, 1);
